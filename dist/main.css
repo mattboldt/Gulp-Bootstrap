@@ -1,2 +1,7 @@
 body {
+  font-family: sans-serif;
   color: #333; }
+
+p {
+  line-height: 2em;
+  color: red; }

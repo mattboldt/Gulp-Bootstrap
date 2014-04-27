@@ -1,31 +1,26 @@
-var gulp = require('gulp');
+var gulp = require('gulp'),
+    jshint = require('gulp-jshint'),
+    coffee = require('gulp-coffee'),
+    sass = require('gulp-sass'),
+    concat = require('gulp-concat'),
+    uglify = require('gulp-uglify'),
+    rename = require('gulp-rename');
+    watch = require('gulp-watch'),
+    livereload = require('gulp-livereload');
 
-var jshint = require('gulp-jshint');
-var coffee = require('gulp-coffee');
-var sass = require('gulp-sass');
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
-var rename = require('gulp-rename');
 
-
-// Compile Our Coffeescript
+// Compile Coffeescript
 gulp.task('coffeescript', function() {
     return gulp.src('assets/coffeescripts/**/*.coffee')
         .pipe(coffee())
         .pipe(gulp.dest('assets/javascripts/'));
 });
 
+// Lint JS
 gulp.task('lint', function() {
     return gulp.src('assets/javascripts/**/*.js')
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
-});
-
-// Compile Sass
-gulp.task('sass', function() {
-    return gulp.src('assets/stylesheets/**/*.scss')
-        .pipe(sass())
-        .pipe(gulp.dest('dist'));
 });
 
 // Concatenate & Minify JS
@@ -38,10 +33,23 @@ gulp.task('scripts', function() {
         .pipe(gulp.dest('dist'));
 });
 
+// Compile Sass
+gulp.task('sass', function() {
+    return gulp.src('assets/stylesheets/**/*.scss')
+        .pipe(sass())
+        .pipe(gulp.dest('dist'));
+});
+
 // Watch Files For Changes
 gulp.task('watch', function() {
-    gulp.watch('assets/javascripts/**/*.js', ['lint', 'scripts']);
-    gulp.watch('assets/stylesheets/**/*.scss', ['sass']);
+    var server = livereload();
+    gulp.watch('assets/javascripts/**/*.js', ['lint', 'scripts']).on('change', function(file) {
+      server.changed(file.path);
+    });
+    gulp.watch('assets/stylesheets/**/*.scss', ['sass']).on('change', function(file) {
+      server.changed(file.path);
+    });
+
 });
 
 // Default Task
