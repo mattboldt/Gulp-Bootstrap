@@ -36,6 +36,10 @@ Thanks to https://github.com/travm for this wonderful guide on getting started w
 http://travismaynard.com/writing/getting-started-with-gulp
 
 
+==============
+
+~~~
+
 The MIT License (MIT)
 
 Copyright (c) 2014 Matt Boldt | mattboldt.com
@@ -57,3 +61,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
+~~~

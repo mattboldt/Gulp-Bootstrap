@@ -1,3 +1,11 @@
+/*
+ *
+ * A Gulpjs boilerplate by Matt Boldt | mattboldt.com | https://github.com/mattboldt/Gulp-Bootstrap
+ * MIT License
+ *
+ */
+
+// Grab node packages
 var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     coffee = require('gulp-coffee'),
@@ -42,6 +50,7 @@ gulp.task('sass', function() {
 
 // Watch Files For Changes
 gulp.task('watch', function() {
+    // Start Livereload server
     var server = livereload();
     gulp.watch('assets/javascripts/**/*.js', ['lint', 'scripts']).on('change', function(file) {
       server.changed(file.path);
