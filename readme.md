@@ -3,13 +3,34 @@ A Simple Gulp.js Boilerplate
 
 I love the way Rails compiles Coffeescript, Scss, and JS, and I sought out to recreate that with a task runner. Gulp made that easy.
 
+### Getting Started
+
+First, clone the repo, then run
+~~~
+npm install
+~~~
+
+
+Then, to start compiling, just run
+~~~
+gulp
+~~~
+
+That's it!
+
+### The details
+
 Non-compiled Scss goes in `assets/stylesheets/`. These must be Scss.
 
 Non-compiled Coffeescript goes in `assets/coffeescripts`. These must be Coffeescript.
 
 If you chose to use JS & Coffeescript, or are including libraries in JS, they go in `assets/javascripts`. Here live the compiled Coffeescript files. They get linted an concatenated from here.
 
-All compiled assets go to `dist/`. This includes a non-minified JS file, and a minified one. This also includes whatever Scss files in `assets/stylesheets`. I recommend keeping a `main.scss` file that uses `@import` to import Scss partials.
+All compiled assets go to `dist/`. This includes a non-minified JS file, and a minified one. This also includes whatever Scss files in `assets/stylesheets`. I recommend keeping a `main.scss` file that uses `@import` to import Scss partials (instead of having multiple Scss files).
+
+It also has Livereload. Install the Chrome Extention here: https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en
+
+
 
 Thanks to https://github.com/travm for this wonderful guide on getting started w/ Gulp.
 http://travismaynard.com/writing/getting-started-with-gulp
